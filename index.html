@@ -104,20 +104,8 @@
     color: #9fb3aa; text-align: center; overflow: hidden;
   }
   .fig img { width: 100%; display: block; }
-  .fig .ph { padding: 2rem 1rem; }
-  .fig .ph i { font-size: 1.9rem; display: block; margin-bottom: 0.45rem; }
-  .fig .ph .name { font-size: 0.78rem; color: #c2d0c9; margin-top: 0.3rem; font-family: 'JetBrains Mono', monospace; }
   figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.7rem; line-height: 1.6; }
   figcaption b { color: var(--ink); }
-
-  /* ---------- Pillars ---------- */
-  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem; }
-  .pillar { border: 1px solid var(--line); border-radius: 12px; padding: 1.3rem 1.2rem; background:#fff; transition: transform .15s, box-shadow .15s; }
-  .pillar:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(31,157,107,0.10); }
-  .pillar .ic { width: 38px; height: 38px; border-radius: 9px; background: var(--accent-soft); color: var(--accent-dark); display:flex; align-items:center; justify-content:center; margin-bottom: 0.7rem; }
-  .pillar h4 { margin: 0 0 0.3rem; font-weight: 600; }
-  .pillar p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
-  .pillar .big { font-size: 1.35rem; font-weight: 700; color: var(--accent-dark); }
 
   /* ---------- Tables ---------- */
   .tbl-wrap { overflow-x: auto; }
@@ -143,22 +131,9 @@
   .eq { font-family: 'Cambria Math', 'Georgia', serif; font-size: 1.25rem; }
   .eq i { margin: 0 0.02em; }
 
-  /* ---------- Gallery (appendix) ---------- */
-  /* main qualitative: one figure per row, stacked */
+  /* ---------- Qualitative: one figure per row, stacked ---------- */
   .stack { display: flex; flex-direction: column; gap: 2.2rem; }
   .stack .fig { background:#fff; }
-
-  /* more qualitative: horizontal swipe carousel */
-  .carousel-hint { color: var(--muted); font-size: 0.85rem; margin: 0.3rem 0 0.9rem; display:flex; align-items:center; gap:0.4rem; }
-  .carousel { display: flex; gap: 1.2rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0.2rem 0 1.2rem; -webkit-overflow-scrolling: touch; }
-  .carousel figure { flex: 0 0 86%; scroll-snap-align: center; margin: 0; }
-  .carousel .fig { background:#fff; }
-  .carousel .fig img { max-height: 66vh; width: auto; max-width: 100%; }
-  .carousel figcaption { max-height: 8.5rem; overflow-y: auto; }
-  .carousel::-webkit-scrollbar { height: 9px; }
-  .carousel::-webkit-scrollbar-thumb { background: #cdded6; border-radius: 999px; }
-  @media (max-width: 760px) { .carousel figure { flex-basis: 92%; } }
-  .note { background: #fff8ec; border: 1px solid #f0e2c2; border-radius: 10px; padding: 0.9rem 1.1rem; color: #7a652f; font-size: 0.9rem; }
 
   /* ---------- BibTeX ---------- */
   pre.bib { background: #11201a; color: #d7ece2; border-radius: 10px; padding: 1.2rem 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; line-height: 1.65; overflow-x: auto; }
