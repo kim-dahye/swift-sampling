@@ -66,6 +66,8 @@
   }
   .title .logo { height: 2.1rem; vertical-align: -0.42rem; margin: 0 0.12rem; }
   .authors { font-size: 1.05rem; margin-bottom: 0.5rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1.2rem; }
+  .authors a { color: var(--ink); border-bottom: 1px solid transparent; transition: border-color .15s, color .15s; }
+  .authors a:hover { color: var(--accent-dark); border-bottom-color: var(--accent); }
   .authors sup { color: var(--accent); font-weight: 500; }
   .affil { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.25rem; }
   .affil sup { color: var(--accent); }
@@ -142,7 +144,6 @@
 
   @media (max-width: 760px) {
     .title { font-size: 1.85rem; }
-    .pillars, .gallery { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -159,19 +160,21 @@
     </h1>
 
     <div class="authors">
-      <span><b>Dahye Kim</b><sup>1</sup></span>
-      <span><b>Bhuvan Sachdeva</b><sup>2*</sup></span>
-      <span><b>Karan Uppal</b><sup>2*</sup></span>
+      <span><a href="https://kim-dahye.github.io/" target="_blank" rel="noopener"><b>Dahye Kim</b></a><sup>1</sup></span>
+      <span><a href="https://bhuvan-21.github.io/" target="_blank" rel="noopener"><b>Bhuvan Sachdeva</b></a><sup>2*</sup></span>
+      <span><a href="https://karan-uppal3.github.io/" target="_blank" rel="noopener"><b>Karan Uppal</b></a><sup>2*</sup></span>
       <span><b>Naman Gupta</b><sup>2*</sup></span>
-      <span><b>Vineeth N. Balasubramanian</b><sup>2</sup></span>
-      <span><b>Deepti Ghadiyaram</b><sup>1</sup></span>
+    </div>
+    <div class="authors">
+      <span><a href="https://scholar.google.com/citations?user=7soDcboAAAAJ&hl=en" target="_blank" rel="noopener"><b>Vineeth N. Balasubramanian</b></a><sup>2</sup></span>
+      <span><a href="https://deeptigp.github.io/" target="_blank" rel="noopener"><b>Deepti Ghadiyaram</b></a><sup>1</sup></span>
     </div>
     <div class="affil"><sup>1</sup>Boston University &nbsp;&nbsp; <sup>2</sup>Microsoft Research India</div>
     <div class="affil-note"><sup>*</sup>Equal contribution</div>
 
     <div class="links">
-      <a class="btn" href="#"><i class="fas fa-file-pdf"></i> Paper</a>
-      <a class="btn light" href="#"><i class="fas fa-file-lines"></i> arXiv</a>
+      <a class="btn" href="https://arxiv.org/pdf/2605.22678" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a>
+      <a class="btn light" href="https://arxiv.org/abs/2605.22678" target="_blank" rel="noopener"><i class="fas fa-file-lines"></i> arXiv</a>
       <a class="btn light" href="#"><i class="fab fa-github"></i> Code</a>
       <a class="btn light" href="#bibtex"><i class="fas fa-quote-right"></i> BibTeX</a>
     </div>
@@ -183,7 +186,7 @@
   <div class="container">
     <figure>
       <div class="fig"><img src="assets/figures/fig1_teaser.png" alt="Swift Sampling teaser: Taylor residual over time and selected frames"></div>
-      <figcaption><b>Figure 1.</b> <b>Swift Sampling efficiently identifies temporal surprises in videos</b> by measuring how much a frame deviates from the trajectory predicted by its preceding context. Using a Taylor expansion of visual features, we select frames with the largest residuals within their temporal neighborhood as keyframes. <i>Top:</i> Temporal surprise captured using Taylor residual over time. <i>Bottom:</i> input frames and frames selected by Uniform sampling (<span style="color:#E8530E;font-weight:600">orange</span>), Cosine Uniqueness (<span style="color:#C99100;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>). Swift Sampling captures the video’s most informative frames with 30× less overhead than Cosine Uniqueness, while delivering a +12.5% improvement on VQA tasks on long videos with tight frame budgets.</figcaption>
+      <figcaption><b>Figure 1.</b> <b>Swift Sampling efficiently identifies temporal surprises in videos</b> by measuring how much a frame deviates from the trajectory predicted by its preceding context. Using a Taylor expansion of visual features, we select frames with the largest residuals within their temporal neighborhood as keyframes. <i>Top:</i> Temporal surprise captured using Taylor residual over time. <i>Bottom:</i> input frames and frames selected by Uniform sampling (<span style="color:#FF5721">orange</span>), Cosine Uniqueness (<span style="color:#F5A623">yellow</span>), and our method (<span style="color:#009B55">green</span>). Swift Sampling captures the video’s most informative frames with 30× less overhead than Cosine Uniqueness, while delivering a +12.5% improvement on VQA tasks on long videos with tight frame budgets.</figcaption>
     </figure>
   </div>
 </section>
@@ -248,7 +251,6 @@
           <tr><td colspan="14" class="grouphdr">LLaVA-OneVision</td></tr>
           <tr><td>Uniform</td><td>1.00×</td><td>69.9</td><td>56.4</td><td>48.8</td><td>58.3</td><td>45.2</td><td>47.5</td><td>48.1</td><td>55.3</td><td>61.4</td><td>54.4</td><td>50.0</td><td>64.7</td></tr>
           <tr><td>Cosine Uniqueness</td><td>1.60×</td><td>65.3</td><td>54.7</td><td>47.0</td><td>55.7</td><td>47.0</td><td>47.1</td><td>46.3</td><td>52.5</td><td>63.6</td><td>61.1</td><td>47.9</td><td>65.4</td></tr>
-          <tr><td>MaxInfo</td><td>1.79×</td><td>71.1</td><td>57.2</td><td>48.8</td><td>58.9</td><td>51.4</td><td>50.8</td><td>50.0</td><td>57.8</td><td>63.0</td><td>59.1</td><td>51.1</td><td>66.5</td></tr>
           <tr class="ours"><td>Swift Sampling (Ours)</td><td>1.02×</td><td>71.0</td><td>56.9</td><td>49.2</td><td>59.0</td><td>51.6</td><td>54.3</td><td>50.9</td><td>57.9</td><td>62.2</td><td>58.2</td><td>54.2</td><td>65.6</td></tr>
           <tr><td colspan="14" class="grouphdr">LLaVA-Video</td></tr>
           <tr><td>Uniform</td><td>1.00×</td><td>74.0</td><td>59.0</td><td>51.3</td><td>61.4</td><td>50.7</td><td>53.3</td><td>54.6</td><td>56.8</td><td>56.7</td><td>54.4</td><td>50.0</td><td>64.2</td></tr>
@@ -258,6 +260,39 @@
       </table>
     </div>
     <p class="tbl-cap">Swift Sampling brings consistent gains over uniform sampling on both backbones, with particularly strong improvements on long-duration videos: +6.8 points on LongVideoBench (≥20 min) and +4.2 points on MLVU (≥30 min) for LLaVA-OneVision, at only 1.02× inference cost.</p>
+
+    <h3 class="sub">Comparison with query-agnostic baselines</h3>
+    <p class="lead">All methods select 32 frames from a pool of 128 on LLaVA-OneVision. FLOPs report inference cost relative to uniform sampling.</p>
+    <div class="tbl-wrap">
+      <table class="res res-wide">
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th rowspan="2">FLOPs</th>
+            <th colspan="4">Video-MME</th>
+            <th colspan="4">LongVideoBench</th>
+            <th colspan="4">MLVU</th>
+          </tr>
+          <tr>
+            <th>Short</th><th>Med.</th><th>Long</th><th>Overall</th>
+            <th>&ge;10m</th><th>&ge;20m</th><th>&ge;30m</th><th>Overall</th>
+            <th>&ge;10m</th><th>&ge;15m</th><th>&ge;30m</th><th>Overall</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Uniform</td><td>1.00×</td><td>69.9</td><td>56.4</td><td>48.8</td><td>58.3</td><td>45.2</td><td>47.5</td><td>48.1</td><td>55.3</td><td>61.4</td><td>54.4</td><td>50.0</td><td>64.7</td></tr>
+          <tr><td>Cosine Uniqueness</td><td>1.60×</td><td>65.3</td><td>54.7</td><td>47.0</td><td>55.7</td><td>47.0</td><td>47.1</td><td>46.3</td><td>52.5</td><td>63.6</td><td>61.1</td><td>47.9</td><td>65.4</td></tr>
+          <tr><td>Frame difference</td><td>1.00×</td><td>67.4</td><td>53.3</td><td>48.3</td><td>56.4</td><td>46.3</td><td>49.3</td><td>51.9</td><td>53.5</td><td>58.5</td><td>53.7</td><td>45.8</td><td>64.6</td></tr>
+          <tr><td>Iframe</td><td>1.00×</td><td>67.4</td><td>54.9</td><td>48.7</td><td>57.0</td><td>52.0</td><td>49.8</td><td>49.8</td><td>57.1</td><td>60.6</td><td>54.4</td><td>52.1</td><td>63.8</td></tr>
+          <tr><td>Pframe</td><td>1.00×</td><td>66.9</td><td>55.1</td><td>48.2</td><td>56.7</td><td>51.9</td><td>49.1</td><td>49.1</td><td>56.5</td><td>60.8</td><td>54.4</td><td>50.0</td><td>64.1</td></tr>
+          <tr><td>Optical Flow</td><td>1.07×</td><td>68.6</td><td>53.0</td><td>48.0</td><td>56.5</td><td>52.4</td><td>50.7</td><td>50.7</td><td>56.9</td><td>60.0</td><td>56.4</td><td>52.1</td><td>62.9</td></tr>
+          <tr><td>DySeg (adapted)</td><td>1.79×</td><td>69.6</td><td>53.7</td><td>48.4</td><td>57.2</td><td>46.0</td><td>48.2</td><td>51.9</td><td>52.9</td><td>49.6</td><td>47.7</td><td>48.3</td><td>63.1</td></tr>
+          <tr><td>MaxInfo</td><td>1.79×</td><td>71.1</td><td>57.2</td><td>48.8</td><td>58.9</td><td>51.4</td><td>50.8</td><td>50.0</td><td>57.8</td><td>63.0</td><td>59.1</td><td>51.1</td><td>66.5</td></tr>
+          <tr class="ours"><td>Swift Sampling (Ours)</td><td>1.02×</td><td>71.0</td><td>56.9</td><td>49.2</td><td>59.0</td><td>51.6</td><td>54.3</td><td>50.9</td><td>57.9</td><td>62.2</td><td>58.2</td><td>54.2</td><td>65.6</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-cap">Swift Sampling remains highly competitive with all query-agnostic baselines while operating at a negligible 1.02× inference cost, with the strongest gains on the long-video subsets.</p>
 
     <h3 class="sub">Effect of frame budget</h3>
     <p class="lead">Swift Sampling consistently outperforms uniform sampling across all frame budgets <span class="m">K</span>, with significant gains on longer videos and under highly constrained budgets. As the frame budget tightens, identifying temporal surprises becomes critical for model reasoning.</p>
@@ -293,7 +328,7 @@
     <div class="lead">
       <p><b>Token compression.</b> We integrate Swift Sampling into UniComp, the current state-of-the-art token-compression method, by replacing its default uniform frame selection. Swift Sampling consistently boosts UniComp's accuracy across all retention ratios <span class="m">r</span>, achieving a peak gain of +1.6 points on MLVU (<span class="m">r</span>&nbsp;=&nbsp;0.15). It offers a drop-in improvement for token-compression pipelines.</p>
       <p><b>Video captioning.</b> We evaluate Swift Sampling on LLaVA-OneVision on the TempCompass benchmark, where improved frame selection is expected to yield more informative captions. Swift Sampling improves captioning performance across nearly all categories, but struggles on attribute change.</p>
-      <p><b>Other downstream tasks in Video-MME.</b> Analyzing performance by task category, Swift Sampling excels in reasoning-intensive tasks: Spatial Reasoning (+5.4%), Action Reasoning (+3.9%), Temporal Reasoning (+2.8%), and Action Recognition (+2.2%). Performance regresses in tasks requiring global temporal continuity, such as Temporal Perception (−3.6%) and Counting (−2.2%).</p>
+      <p><b>Other downstream tasks in Video-MME.</b> Analyzing performance by task category, Swift Sampling excels in reasoning-intensive tasks: Spatial Reasoning (+5.4%), Action Reasoning (+3.9%), Temporal Reasoning (+2.8%), and Action Recognition (+2.2%).</p>
     </div>
   </div>
 </section>
@@ -310,7 +345,7 @@
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig4_painting.png" alt="Figure 4"></div>
-        <figcaption><b>Figure 4.</b> <b>Qualitative comparison of frame selection</b> on a sample video from the Video-MME dataset, given a budget to select 8 frames out of 128. Answering the question requires identifying the temporal order of several visually similar but semantically distinct painting events: establishing the background, drawing the water-lily pads, adding flowers, and increasing texture. <span style="color:#E8530E;font-weight:600">Uniform sampling</span> captures the background and water-lily pads <span style="color:#D8341F;font-weight:600">but misses the frames showing the addition of flowers and texture</span>, leading to an incorrect answer. <span style="color:#C99100;font-weight:600">Cosine Uniqueness</span> over-selects <span style="color:#D8341F;font-weight:600">visually salient but task-irrelevant frames</span>, such as title cards and end screens, which is especially harmful under a limited frame budget. <span style="color:#159C9C;font-weight:600">Swift Sampling</span> focuses on temporally informative changes in the painting progression, <span style="color:#1E8A3C;font-weight:600">captures key intermediate stages</span> and enables correct temporal reasoning.</figcaption>
+        <figcaption><b>Figure 4.</b> <b>Qualitative comparison of frame selection</b> on a sample video from the Video-MME dataset, given a budget to select 8 frames out of 128. Answering the question requires identifying the temporal order of several visually similar but semantically distinct painting events: establishing the background, drawing the water-lily pads, adding flowers, and increasing texture. <span style="color:#FF5721">Uniform sampling</span> captures the background and water-lily pads <span style="color:#FF0000">but misses the frames showing the addition of flowers and texture</span>, leading to an incorrect answer. <span style="color:#F5A623">Cosine Uniqueness</span> over-selects <span style="color:#FF0000">visually salient but task-irrelevant frames</span>, such as title cards and end screens, which is especially harmful under a limited frame budget. <span style="color:#00B4CE">Swift Sampling</span> focuses on temporally informative changes in the painting progression, <span style="color:#009B55">captures key intermediate stages</span> and enables correct temporal reasoning.</figcaption>
       </figure>
     </div>
   </div>
@@ -345,39 +380,39 @@
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig7_street.png" alt="Figure 7"></div>
-        <figcaption><b>Figure 7.</b> <b>Qualitative example from the LVB dataset.</b> Each row shows the 16 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. The question asks what the man in a yellow short-sleeve shirt is doing in a bustling street scene, with the correct answer being <i>riding a bicycle</i>. Answering this question requires retaining the specific street scene described in the question and the local action within it. Uniform sampling and Cosine Uniqueness both select visually diverse city scenes, but they miss the target moment around frame #42 and therefore predict <i>walking</i>. In contrast, our method selects a more diverse set of frames across the video while still retaining the question-relevant street scene around frame #42. As a result, it preserves the frame needed to correctly identify that the man is riding a bicycle. % Hate adding more - but Frame 42 isn't popping and required zooming in. Make the size of just that frame much bigger or if it is easy, put our swift sampling icon next to it -- something to grab the viewer's attention. </figcaption>
+        <figcaption><b>Figure 7.</b> <b>Qualitative example from the LVB dataset.</b> Each row shows the 16 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. The question asks what the man in a yellow short-sleeve shirt is doing in a bustling street scene, with the correct answer being <i>riding a bicycle</i>. Answering this question requires retaining the specific street scene described in the question and the local action within it. Uniform sampling and Cosine Uniqueness both select visually diverse city scenes, but they miss the target moment around frame #42 and therefore predict <i>walking</i>. In contrast, our method selects a more diverse set of frames across the video while still retaining the question-relevant street scene around frame #42. As a result, it preserves the frame needed to correctly identify that the man is riding a bicycle. % Hate adding more - but Frame 42 isn't popping and required zooming in. Make the size of just that frame much bigger or if it is easy, put our swift sampling icon next to it -- something to grab the viewer's attention. </figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig8_cruise.png" alt="Figure 8"></div>
-        <figcaption><b>Figure 8.</b> <b>Qualitative example from the MLVU dataset.</b> Each row shows the 8 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. The question asks where the basketball court in the video is located, with the correct answer being <i>on a cruise ship</i>. The video contains highly diverse scenes, so answering the question requires retaining broad scene coverage together with the brief contextual cues that indicate the cruise-ship setting. Uniform sampling captures mainly natural scenes and also includes visually similar selections, leading the model to predict <i>in a park</i>. Cosine Uniqueness concentrates on a narrow subset of visually distinctive frames, such as flames and bright sky shots, leaving the cruise-ship context under-covered. In contrast, our method selects a more diverse set of frames across the video and captures the basketball-court scene in frame #38. In this frame, the court appears together with the surrounding waterway, allowing the model to infer that it is located on a cruise ship. As a result, it correctly answers the question. % The question seems to not align with the frames. There is no basketball court in this particular selection.actually it's in frame 38, but I think this is not popping up like you said. I'll add icon next to it.</figcaption>
+        <figcaption><b>Figure 8.</b> <b>Qualitative example from the MLVU dataset.</b> Each row shows the 8 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. The question asks where the basketball court in the video is located, with the correct answer being <i>on a cruise ship</i>. The video contains highly diverse scenes, so answering the question requires retaining broad scene coverage together with the brief contextual cues that indicate the cruise-ship setting. Uniform sampling captures mainly natural scenes and also includes visually similar selections, leading the model to predict <i>in a park</i>. Cosine Uniqueness concentrates on a narrow subset of visually distinctive frames, such as flames and bright sky shots, leaving the cruise-ship context under-covered. In contrast, our method selects a more diverse set of frames across the video and captures the basketball-court scene in frame #38. In this frame, the court appears together with the surrounding waterway, allowing the model to infer that it is located on a cruise ship. As a result, it correctly answers the question. % The question seems to not align with the frames. There is no basketball court in this particular selection.actually it's in frame 38, but I think this is not popping up like you said. I'll add icon next to it.</figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig9_trolley.png" alt="Figure 9"></div>
-        <figcaption><b>Figure 9.</b> <b>Qualitative example from the MLVU dataset.</b> Each row shows the 8 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. The question asks for the color of the trolley picked up in the video, with the correct answer being <i>blue</i>. This is an egocentric video of a construction-related task, and answering the question requires capturing the brief moment when the trolley is picked up. Uniform sampling misses this moment entirely. Cosine Uniqueness captures the trolley, but only partially, making its color difficult to identify. In contrast, our method captures the pickup moment with the trolley clearly visible, preserving the information needed to correctly identify its color.</figcaption>
+        <figcaption><b>Figure 9.</b> <b>Qualitative example from the MLVU dataset.</b> Each row shows the 8 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. The question asks for the color of the trolley picked up in the video, with the correct answer being <i>blue</i>. This is an egocentric video of a construction-related task, and answering the question requires capturing the brief moment when the trolley is picked up. Uniform sampling misses this moment entirely. Cosine Uniqueness captures the trolley, but only partially, making its color difficult to identify. In contrast, our method captures the pickup moment with the trolley clearly visible, preserving the information needed to correctly identify its color.</figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig_ads.png" alt="Figure 10"></div>
-        <figcaption><b>Figure 10.</b> <b>Qualitative example from the Video-MME dataset under a tight frame budget.</b> Each row shows the 8 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. The question asks which option best summarizes the main content of the video, with the correct answer being <i>Product advertisement</i>. This question requires integrating evidence across multiple scenes rather than recognizing a single salient moment. Uniform sampling captures a range of scenes, but because the selected frames are spaced evenly, they resemble a sequence of unrelated movie shots and lead the model to predict <i>Movie commentary</i>. Cosine Uniqueness concentrates on highly distinctive black transition frames under this limited frame budget, leaving too few informative frames to recover the video's overall theme. In contrast, our method selects multiple device-centric frames along with diverse contextual scenes, better preserving the recurring visual cues that characterize the video as a product advertisement. As a result, it preserves the information needed to correctly identify the video as a product advertisement.</figcaption>
+        <figcaption><b>Figure 10.</b> <b>Qualitative example from the Video-MME dataset under a tight frame budget.</b> Each row shows the 8 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. The question asks which option best summarizes the main content of the video, with the correct answer being <i>Product advertisement</i>. This question requires integrating evidence across multiple scenes rather than recognizing a single salient moment. Uniform sampling captures a range of scenes, but because the selected frames are spaced evenly, they resemble a sequence of unrelated movie shots and lead the model to predict <i>Movie commentary</i>. Cosine Uniqueness concentrates on highly distinctive black transition frames under this limited frame budget, leaving too few informative frames to recover the video's overall theme. In contrast, our method selects multiple device-centric frames along with diverse contextual scenes, better preserving the recurring visual cues that characterize the video as a product advertisement. As a result, it preserves the information needed to correctly identify the video as a product advertisement.</figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig_soccer.png" alt="Figure 11"></div>
-        <figcaption><b>Figure 11.</b> <b>Qualitative example from the Video-MME dataset.</b> Each row shows the 32 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. The question asks how many of Mbapp\'e's spectacular goals are shown in the video, with the correct answer being 4. The video shows four separate goal segments, each marked by a numbered overlay. Uniform sampling distributes frames evenly but misses one of these goal segments. Cosine Uniqueness selects visually salient frames, such as close-up shots and repeated graphic frames, but does not cover all of the numbered goal segments needed for counting. In contrast, our method selects a more diverse set of frames across the video with good temporal coverage, capturing frames corresponding to goals #1, #2, #3, and #4. As a result, it retains the frames needed to correctly answer the counting question.</figcaption>
+        <figcaption><b>Figure 11.</b> <b>Qualitative example from the Video-MME dataset.</b> Each row shows the 32 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. The question asks how many of Mbapp\'e's spectacular goals are shown in the video, with the correct answer being 4. The video shows four separate goal segments, each marked by a numbered overlay. Uniform sampling distributes frames evenly but misses one of these goal segments. Cosine Uniqueness selects visually salient frames, such as close-up shots and repeated graphic frames, but does not cover all of the numbered goal segments needed for counting. In contrast, our method selects a more diverse set of frames across the video with good temporal coverage, capturing frames corresponding to goals #1, #2, #3, and #4. As a result, it retains the frames needed to correctly answer the counting question.</figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig_art.png" alt="Figure 12"></div>
-        <figcaption><b>Figure 12.</b> <b>Qualitative example on an informational video</b> from the Video-MME dataset. Each row shows the 32 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. The question asks which item is listed in the top 2, with the correct answer being <i>London Aquatics Centre</i>. Since the video presents several places one after another, the model needs frames that cover the relevant places and their order in the video. Uniform sampling provides broad temporal coverage but still contains redundant selections. Cosine Uniqueness captures visually distinctive frames, but several of its selected frames come from similar moments of the same entries, so it misses some of the places needed to answer the question. In contrast, our method selects a more diverse set of frames across the video, providing broader coverage of the entries and retaining the question-relevant moments (# 71). As a result, it preserves the evidence needed to correctly identify the top-2 item.</figcaption>
+        <figcaption><b>Figure 12.</b> <b>Qualitative example on an informational video</b> from the Video-MME dataset. Each row shows the 32 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. The question asks which item is listed in the top 2, with the correct answer being <i>London Aquatics Centre</i>. Since the video presents several places one after another, the model needs frames that cover the relevant places and their order in the video. Uniform sampling provides broad temporal coverage but still contains redundant selections. Cosine Uniqueness captures visually distinctive frames, but several of its selected frames come from similar moments of the same entries, so it misses some of the places needed to answer the question. In contrast, our method selects a more diverse set of frames across the video, providing broader coverage of the entries and retaining the question-relevant moments (# 71). As a result, it preserves the evidence needed to correctly identify the top-2 item.</figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig_yoga.png" alt="Figure 13"></div>
-        <figcaption><b>Figure 13.</b> <b>Qualitative example on a visually static yoga video from the Video-MME dataset.</b> Each block shows the Taylor residual over time (<i>top</i>) and the corresponding input frames together with the 32 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. The question asks for the order in which four poses are introduced, with the correct answer being (b)\,(d)\,(c)\,(a). Unlike videos with frequent scene cuts, this clip remains visually static, so the relevant evidence lies in subtle pose transitions. Uniform and Cosine Uniqueness both miss the seated chair twist around frame #42 and therefore confuse (b) downward facing dog with (d) seated chair twist. Our method captures this key transition and correctly answers the question, illustrating that temporal surprise can identify informative moments even when motion is small and the overall scene changes very little.</figcaption>
+        <figcaption><b>Figure 13.</b> <b>Qualitative example on a visually static yoga video from the Video-MME dataset.</b> Each block shows the Taylor residual over time (<i>top</i>) and the corresponding input frames together with the 32 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. The question asks for the order in which four poses are introduced, with the correct answer being (b)\,(d)\,(c)\,(a). Unlike videos with frequent scene cuts, this clip remains visually static, so the relevant evidence lies in subtle pose transitions. Uniform and Cosine Uniqueness both miss the seated chair twist around frame #42 and therefore confuse (b) downward facing dog with (d) seated chair twist. Our method captures this key transition and correctly answers the question, illustrating that temporal surprise can identify informative moments even when motion is small and the overall scene changes very little.</figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig_arson_residual.png" alt="Figure 14"></div>
-        <figcaption><b>Figure 14.</b> <b>Qualitative example from the MLVU dataset.</b> Each block shows the Taylor residual over time (<i>top</i>) and the corresponding input frames together with the 8 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. The question asks whether there is any irregularity in the surveillance video and, if so, what type it is, with the correct answer being <i>arson</i>. The video is largely composed of repetitive grayscale surveillance footage, and the key evidence appears only when the scene changes into a fire breakout near the end. Uniform sampling distributes frames evenly across the clip and captures only a weak glimpse of this anomaly, leading the model to predict <i>stealing</i>. Cosine Uniqueness concentrates on visually distinctive but content-redundant frames in the surveillance footage and fails to preserve the fire breakout. In contrast, our method captures the transition from normal surveillance to the arson scene, preserving the anomaly-related frames needed to correctly identify the irregularity as <i>arson</i>.</figcaption>
+        <figcaption><b>Figure 14.</b> <b>Qualitative example from the MLVU dataset.</b> Each block shows the Taylor residual over time (<i>top</i>) and the corresponding input frames together with the 8 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. The question asks whether there is any irregularity in the surveillance video and, if so, what type it is, with the correct answer being <i>arson</i>. The video is largely composed of repetitive grayscale surveillance footage, and the key evidence appears only when the scene changes into a fire breakout near the end. Uniform sampling distributes frames evenly across the clip and captures only a weak glimpse of this anomaly, leading the model to predict <i>stealing</i>. Cosine Uniqueness concentrates on visually distinctive but content-redundant frames in the surveillance footage and fails to preserve the fire breakout. In contrast, our method captures the transition from normal surveillance to the arson scene, preserving the anomaly-related frames needed to correctly identify the irregularity as <i>arson</i>.</figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig_teaser_full.png" alt="Figure 17"></div>
-        <figcaption><b>Figure 17.</b> <b>Detailed view of Fig. 1.</b> Full frame selection results on the same video. Each block shows the Taylor residual over time (<i>top</i>) and the corresponding input frames together with the 32 frames selected by Uniform sampling (<span style="color:#D8341F;font-weight:600">red</span>), Cosine Uniqueness (<span style="color:#E8730C;font-weight:600">yellow</span>), and our method (<span style="color:#1E8A3C;font-weight:600">green</span>) from the full 128-frame candidate pool. Our method selects temporally surprising moments. In contrast, uniform sampling distributes frames evenly, sometimes resulting in redundant selections. Cosine Uniqueness sometimes concentrates on a narrow set of visually distinctive but content-redundant frames.</figcaption>
+        <figcaption><b>Figure 17.</b> <b>Detailed view of Fig. 1.</b> Full frame selection results on the same video. Each block shows the Taylor residual over time (<i>top</i>) and the corresponding input frames together with the 32 frames selected by Uniform sampling (<span style="color:#FF0000">red</span>), Cosine Uniqueness (<span style="color:#FF8000">yellow</span>), and our method (<span style="color:#009B55">green</span>) from the full 128-frame candidate pool. Our method selects temporally surprising moments. In contrast, uniform sampling distributes frames evenly, sometimes resulting in redundant selections. Cosine Uniqueness sometimes concentrates on a narrow set of visually distinctive but content-redundant frames.</figcaption>
       </figure>
       <figure>
         <div class="fig"><img src="assets/figures/fig_magician.png" alt="Figure 18"></div>
@@ -392,10 +427,11 @@
   <div class="container">
     <h2 class="sec">BibTeX</h2>
 <pre class="bib">@article{kim2026swift,
-  title   = {Swift Sampling: Selecting Temporal Surprises via Taylor Series},
-  author  = {Kim, Dahye and Sachdeva, Bhuvan and Uppal, Karan and Gupta, Naman
-             and Balasubramanian, Vineeth N. and Ghadiyaram, Deepti},
-  year    = {2026}
+  title         = {Swift Sampling: Selecting Temporal Surprises via Taylor Series},
+  author        = {Kim, Dahye and Sachdeva, Bhuvan and Uppal, Karan and Gupta, Naman
+                   and Balasubramanian, Vineeth N. and Ghadiyaram, Deepti},
+  journal       = {arXiv preprint arXiv:2605.22678},
+  year          = {2026}
 }</pre>
   </div>
 </section>
