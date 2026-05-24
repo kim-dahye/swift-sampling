@@ -85,6 +85,9 @@
   .btn:hover { background: var(--accent); transform: translateY(-1px); }
   .btn.light { background: #fff; color: var(--ink) !important; border: 1px solid var(--line); }
   .btn.light:hover { background: var(--bg-soft); color: var(--accent-dark) !important; }
+  .btn.soon { background: #fff; color: var(--muted) !important; border: 1px dashed var(--line); cursor: default; }
+  .btn.soon:hover { background: #fff; transform: none; }
+  .btn.soon .soon-tag { font-size: 0.78rem; opacity: 0.8; }
 
   /* ---------- Headings ---------- */
   h2.sec {
@@ -175,7 +178,7 @@
     <div class="links">
       <a class="btn" href="https://arxiv.org/pdf/2605.22678" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a>
       <a class="btn light" href="https://arxiv.org/abs/2605.22678" target="_blank" rel="noopener"><i class="fas fa-file-lines"></i> arXiv</a>
-      <a class="btn light" href="#"><i class="fab fa-github"></i> Code</a>
+      <span class="btn soon"><i class="fab fa-github"></i> Code <span class="soon-tag">(Coming soon!)</span></span>
       <a class="btn light" href="#bibtex"><i class="fas fa-quote-right"></i> BibTeX</a>
     </div>
   </div>
